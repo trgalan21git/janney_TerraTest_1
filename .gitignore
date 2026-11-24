@@ -1,0 +1,9 @@
+# Terraform
+terraform/.terraform/
+terraform/*.tfstate
+terraform/*.tfstate.*
+terraform/tfplan
+terraform/terraform.tfvars
+
+# Databricks bundle local state
+.databricks/
