@@ -1,0 +1,12 @@
+resources:
+  jobs:
+    hello_dab_job:
+      name: hello_dab_job
+      tasks:
+        - task_key: hello_dab
+          notebook_task:
+            notebook_path: ../src/hello_dab.py
+            base_parameters:
+              catalog: ${var.catalog}
+              schema: ${var.schema}
+              target: ${bundle.target}

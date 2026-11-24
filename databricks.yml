@@ -1,0 +1,32 @@
+bundle:
+  name: janney_terratest_1
+
+include:
+  - resources/*.yml
+
+variables:
+  catalog:
+    description: Unity Catalog catalog for this target
+  schema:
+    description: Schema for this target
+
+targets:
+  dev:
+    mode: development
+    default: true
+    workspace:
+      host: https://adb-1083625187459851.11.azuredatabricks.net
+    variables:
+      catalog: dab_dev
+      schema: hello_dab
+
+  test:
+    mode: production
+    workspace:
+      host: https://adb-7405609678927881.1.azuredatabricks.net
+      root_path: /Workspace/Users/83cb533c-9c92-48ec-a4ca-f1939a109780/.bundle/${bundle.name}/${bundle.target}
+    run_as:
+      service_principal_name: 83cb533c-9c92-48ec-a4ca-f1939a109780
+    variables:
+      catalog: dab_test
+      schema: hello_dab    
