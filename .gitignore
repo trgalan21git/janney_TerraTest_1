@@ -7,3 +7,5 @@ terraform/terraform.tfvars
 
 # Databricks bundle local state
 .databricks/
+# VS Code settings
+.vscode/

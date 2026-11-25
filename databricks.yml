@@ -29,4 +29,4 @@ targets:
       service_principal_name: 83cb533c-9c92-48ec-a4ca-f1939a109780
     variables:
       catalog: dab_test
-      schema: hello_dab    
+      schema: hello_dab
