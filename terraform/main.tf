@@ -80,6 +80,10 @@ resource "databricks_grants" "schema" {
     principal  = databricks_service_principal.github.application_id
     privileges = ["USE_SCHEMA", "CREATE_TABLE", "SELECT", "MODIFY"]
   }
+  grant {
+    principal  = "trgalan@trgalansbcglobal.onmicrosoft.com"
+    privileges = ["USE_SCHEMA", "SELECT"]
+  }
   depends_on = [databricks_mws_permission_assignment.sp_test_workspace]
 }
 resource "databricks_entitlements" "sp_github" {
