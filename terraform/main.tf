@@ -32,8 +32,9 @@ resource "databricks_service_principal_federation_policy" "github" {
   policy_id            = "github-main"
   oidc_policy = {
     issuer    = "https://token.actions.githubusercontent.com"
-    audiences = ["https://github.com/${var.github_org}"]
-    subject   = "repo:${var.github_repo}:ref:refs/heads/main"
+    audiences = ["https://${azurerm_databricks_workspace.test.workspace_url}/oidc/v1/token"]
+    # GitHub subject format includes owner and repo IDs
+    subject   = "repo:trgalan21git@343542518/janney_TerraTest_1@1467989680:ref:refs/heads/main"
   }
 }
 
