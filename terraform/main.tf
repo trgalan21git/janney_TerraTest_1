@@ -82,3 +82,9 @@ resource "databricks_grants" "schema" {
   }
   depends_on = [databricks_mws_permission_assignment.sp_test_workspace]
 }
+resource "databricks_entitlements" "sp_github" {
+  provider             = databricks.workspace
+  service_principal_id = databricks_service_principal.github.id
+  workspace_access     = true
+  depends_on           = [databricks_mws_permission_assignment.sp_test_workspace]
+}
